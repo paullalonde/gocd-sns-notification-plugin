@@ -16,18 +16,18 @@
 
 apply plugin: 'java'
 
-group = 'com.example.notification.template'
-version = '0.1-SNAPSHOT'
+group = 'ca.paullalonde.gocd.sns.plugin'
+version = '0.1'
 
 // these values that go into plugin.xml
 project.ext.pluginDesc = [
-    id         : 'com.example.notification.systemout',
+    id         : 'ca.paullalonde.gocd.sns.plugin',
     version    : project.version,
-    goCdVersion: '16.2.1',
-    name       : 'Example Notification Plugin that prints to `System.out`',
+    goCdVersion: '17.3.0',
+    name       : 'GoCD Notification Plugin that sends to AWS SNS',
     description: 'Some longer description of your plugin goes here',
-    vendorName : 'Acme Corp',
-    vendorUrl  : 'https://github.com/user/repository'
+    vendorName : 'Paul Lalonde enrg',
+    vendorUrl  : 'https://github.com/paullalonde/gocd-sns-plugin'
 ]
 
 // Force 1.7 compatibility to ensure that it works with older JVMs
