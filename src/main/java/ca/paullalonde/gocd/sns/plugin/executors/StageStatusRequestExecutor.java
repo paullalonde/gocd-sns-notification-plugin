@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 ThoughtWorks, Inc.
+ * Copyright 2017 Paul Lalonde enrg.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,6 +18,9 @@ package ca.paullalonde.gocd.sns.plugin.executors;
 
 import ca.paullalonde.gocd.sns.plugin.requests.StageStatusRequest;
 import ca.paullalonde.gocd.sns.plugin.PluginRequest;
+import ca.paullalonde.gocd.sns.plugin.PluginSettings;
+import com.amazonaws.services.sns.AmazonSNS;
+import com.amazonaws.services.sns.AmazonSNSClientBuilder;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -52,9 +55,9 @@ public class StageStatusRequestExecutor implements RequestExecutor {
     }
 
     protected void sendNotification() throws Exception {
-        // TODO: Implement this. The request.pipeline object has all the details about the pipeline, materials, stages and jobs
-        // If you need access to settings like API keys, URLs, then call PluginRequest#getPluginSettings
-//        PluginSettings pluginSettings = pluginRequest.getPluginSettings();
-        throw new UnsupportedOperationException();
+        PluginSettings pluginSettings = pluginRequest.getPluginSettings();
+        AmazonSNS sns = AmazonSNSClientBuilder.defaultClient();
+
+        sns.publish(pluginSettings.getTopic(), request.toJSON());
     }
 }

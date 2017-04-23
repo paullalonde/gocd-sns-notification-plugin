@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 ThoughtWorks, Inc.
+ * Copyright 2017 Paul Lalonde enrg.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -37,6 +37,7 @@ public class GetPluginConfigurationExecutor implements RequestExecutor {
     public static final Field API_SERVER_URL = new NonBlankField("api_url", "API URL", null, true, false, "1");
     public static final Field API_USER = new NonBlankField("api_user", "API User", null, true, false, "2");
     public static final Field API_KEY = new NonBlankField("api_key", "API Key", null, true, false, "3");
+    public static final Field TOPIC = new NonBlankField("topic", "Topic ARN", null, true, false, "4");
 
     public static final Map<String, Field> FIELDS = new LinkedHashMap<>();
 
@@ -46,6 +47,7 @@ public class GetPluginConfigurationExecutor implements RequestExecutor {
         FIELDS.put(API_SERVER_URL.key(), API_SERVER_URL);
         FIELDS.put(API_USER.key(), API_USER);
         FIELDS.put(API_KEY.key(), API_KEY);
+        FIELDS.put(TOPIC.key(), TOPIC);
     }
 
     public GoPluginApiResponse execute() {

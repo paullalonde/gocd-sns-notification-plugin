@@ -4,6 +4,7 @@
 # gradle's output dir
 build/
 classes/
+lib/
 
 # the gradle temp dir
 .gradle

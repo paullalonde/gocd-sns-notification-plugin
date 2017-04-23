@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 ThoughtWorks, Inc.
+ * Copyright 2017 Paul Lalonde enrg.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -43,6 +43,10 @@ public class PluginSettings {
     @SerializedName("api_url")
     private String apiUrl;
 
+    @Expose
+    @SerializedName("topic")
+    private String topic;
+
     public static PluginSettings fromJSON(String json) {
         return GSON.fromJson(json, PluginSettings.class);
     }
@@ -57,6 +61,10 @@ public class PluginSettings {
 
     public String getApiUrl() {
         return apiUrl;
+    }
+
+    public String getTopic() {
+        return topic;
     }
 
     public String getGoServerUrl() {
