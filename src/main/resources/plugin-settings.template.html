@@ -20,13 +20,25 @@ Ensure that the keys you use are also declared in the GetPluginConfigurationExec
 -->
 
 <div class="form_item_block">
-  <label>Region:<span class='asterix'>*</span></label>
-  <input type="text" ng-model="region" ng-required="true"/>
+  <label>Topic ARN:<span class='asterix'>*</span></label>
+  <input type="text" ng-model="topic" ng-required="true"/>
+  <span class="form_error" ng-show="GOINPUTNAME[topic].$error.server">{{GOINPUTNAME[topic].$error.server}}</span>
+</div>
+
+<div class="form_item_block">
+  <label>Region:</label>
+  <input type="text" ng-model="region" ng-required="false"/>
   <span class="form_error" ng-show="GOINPUTNAME[region].$error.server">{{GOINPUTNAME[region].$error.server}}</span>
 </div>
 
 <div class="form_item_block">
-  <label>Topic ARN:<span class='asterix'>*</span></label>
-  <input type="text" ng-model="topic" ng-required="true"/>
-  <span class="form_error" ng-show="GOINPUTNAME[topic].$error.server">{{GOINPUTNAME[topic].$error.server}}</span>
+  <label>AWS Access ID:</label>
+  <input type="text" ng-model="aws_access_id" ng-required="false"/>
+  <span class="form_error" ng-show="GOINPUTNAME[aws_access_id].$error.server">{{GOINPUTNAME[aws_access_id].$error.server}}</span>
+</div>
+
+<div class="form_item_block">
+  <label>AWS Secret Access ID:</label>
+  <input type="text" ng-model="aws_secret_access_id" ng-required="false"/>
+  <span class="form_error" ng-show="GOINPUTNAME[aws_secret_access_id].$error.server">{{GOINPUTNAME[aws_secret_access_id].$error.server}}</span>
 </div>

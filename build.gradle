@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 ThoughtWorks, Inc.
+# Copyright 2017 Paul Lalonde enrg.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,16 +16,16 @@
 
 apply plugin: 'java'
 
-group = 'ca.paullalonde.gocd.sns.plugin'
-version = '0.3'
+group = 'ca.paullalonde.gocd.sns_plugin'
+version = '0.5'
 
 // these values that go into plugin.xml
 project.ext.pluginDesc = [
-    id         : 'ca.paullalonde.gocd.sns.plugin',
+    id         : 'sns.notification.plugin',
     version    : project.version,
     goCdVersion: '17.3.0',
-    name       : 'AWS SNS Notification Plugin',
-    description: 'Some longer description of your plugin goes here',
+    name       : 'SNS Notification Plugin',
+    description: 'Sends notifications to the AWS Simple Notification Service (SNS)',
     vendorName : 'Paul Lalonde',
     vendorUrl  : 'https://github.com/paullalonde/gocd-sns-plugin'
 ]
@@ -46,7 +46,7 @@ dependencies {
   compile group: 'com.google.code.gson', name: 'gson', version: '2.6.2'
   compile group: 'com.google.guava', name: 'guava', version: '19.0'
   compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.4'
-  compile group: 'com.amazonaws', name: 'aws-java-sdk', version: '1.11.22'
+  compile group: 'com.amazonaws', name: 'aws-java-sdk-sns', version: '1.11.123'
 
   testCompile group: 'junit', name: 'junit', version: '4.12'
   testCompile group: 'org.hamcrest', name: 'hamcrest-library', version: '1.3'

@@ -1,4 +1,4 @@
-# Notification plugin skeleton
+# SNS Plugin
 
 This is merely a skeleton plugin that plugin developers can fork to get quickly
 started with writing notification plugins for GoCD.
@@ -18,7 +18,7 @@ To build the jar, run `./gradlew clean test assemble`
 ## License
 
 ```plain
-Copyright 2016 ThoughtWorks, Inc.
+Copyright 2017 Paul Lalonde enrg.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

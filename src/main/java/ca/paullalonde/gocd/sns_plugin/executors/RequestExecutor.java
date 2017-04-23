@@ -1,5 +1,5 @@
 /*
-# Copyright 2017 Paul Lalonde enrg.
+ * Copyright 2017 Paul Lalonde enrg.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,4 +14,11 @@
  * limitations under the License.
  */
 
-rootProject.name = 'sns-notification-plugin'
+package ca.paullalonde.gocd.sns_plugin.executors;
+
+import com.thoughtworks.go.plugin.api.response.GoPluginApiResponse;
+
+public interface RequestExecutor {
+
+    GoPluginApiResponse execute() throws Exception;
+}
