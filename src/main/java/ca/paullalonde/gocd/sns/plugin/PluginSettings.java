@@ -28,20 +28,8 @@ public class PluginSettings {
             create();
 
     @Expose
-    @SerializedName("go_server_url")
-    private String goServerUrl;
-
-    @Expose
-    @SerializedName("api_user")
-    private String apiUser;
-
-    @Expose
-    @SerializedName("api_key")
-    private String apiKey;
-
-    @Expose
-    @SerializedName("api_url")
-    private String apiUrl;
+    @SerializedName("region")
+    private String region;
 
     @Expose
     @SerializedName("topic")
@@ -51,23 +39,11 @@ public class PluginSettings {
         return GSON.fromJson(json, PluginSettings.class);
     }
 
-    public String getApiUser() {
-        return apiUser;
-    }
-
-    public String getApiKey() {
-        return apiKey;
-    }
-
-    public String getApiUrl() {
-        return apiUrl;
+    public String getRegion() {
+        return region;
     }
 
     public String getTopic() {
         return topic;
-    }
-
-    public String getGoServerUrl() {
-        return goServerUrl;
     }
 }

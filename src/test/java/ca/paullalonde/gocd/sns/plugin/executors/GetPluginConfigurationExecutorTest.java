@@ -45,29 +45,18 @@ public class GetPluginConfigurationExecutorTest {
 
         assertThat(response.responseCode(), CoreMatchers.is(200));
         String expectedJSON = "{\n" +
-                "  \"go_server_url\": {\n" +
-                "    \"display-name\": \"Go Server URL\",\n" +
+                "  \"region\": {\n" +
+                "    \"display-name\": \"Region\",\n" +
+                "    \"default-value\": \"us-east-1\",\n" +
                 "    \"required\": true,\n" +
                 "    \"secure\": false,\n" +
                 "    \"display-order\": \"0\"\n" +
                 "  },\n" +
-                "  \"api_url\": {\n" +
-                "    \"display-name\": \"API URL\",\n" +
+                "  \"topic\": {\n" +
+                "    \"display-name\": \"Topic ARN\",\n" +
                 "    \"required\": true,\n" +
                 "    \"secure\": false,\n" +
                 "    \"display-order\": \"1\"\n" +
-                "  },\n" +
-                "  \"api_user\": {\n" +
-                "    \"display-name\": \"API User\",\n" +
-                "    \"required\": true,\n" +
-                "    \"secure\": false,\n" +
-                "    \"display-order\": \"2\"\n" +
-                "  },\n" +
-                "  \"api_key\": {\n" +
-                "    \"display-name\": \"API Key\",\n" +
-                "    \"required\": true,\n" +
-                "    \"secure\": false,\n" +
-                "    \"display-order\": \"3\"\n" +
                 "  }\n" +
                 "}";
         JSONAssert.assertEquals(expectedJSON, response.responseBody(), true);

@@ -17,16 +17,16 @@
 apply plugin: 'java'
 
 group = 'ca.paullalonde.gocd.sns.plugin'
-version = '0.1'
+version = '0.3'
 
 // these values that go into plugin.xml
 project.ext.pluginDesc = [
     id         : 'ca.paullalonde.gocd.sns.plugin',
     version    : project.version,
     goCdVersion: '17.3.0',
-    name       : 'GoCD Notification Plugin that sends to AWS SNS',
+    name       : 'AWS SNS Notification Plugin',
     description: 'Some longer description of your plugin goes here',
-    vendorName : 'Paul Lalonde enrg',
+    vendorName : 'Paul Lalonde',
     vendorUrl  : 'https://github.com/paullalonde/gocd-sns-plugin'
 ]
 

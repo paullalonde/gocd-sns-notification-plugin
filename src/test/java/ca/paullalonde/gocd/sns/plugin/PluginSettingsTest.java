@@ -25,17 +25,11 @@ public class PluginSettingsTest {
     @Test
     public void shouldDeserializeFromJSON() throws Exception {
         PluginSettings pluginSettings = PluginSettings.fromJSON("{" +
-                "\"go_server_url\": \"https://build.go.cd/go\", " +
-                "\"api_user\": \"bob\", " +
-                "\"api_key\": \"p@ssw0rd\", " +
-                "\"api_url\": \"https://cloud.example.com/api/v1\", " +
+                "\"region\": \"us-east-1\", " +
                 "\"topic\": \"arn:aws:sns:us-east-1:333333333333:my-test-topic\" " +
                 "}");
 
-        assertThat(pluginSettings.getGoServerUrl(), is("https://build.go.cd/go"));
-        assertThat(pluginSettings.getApiUser(), is("bob"));
-        assertThat(pluginSettings.getApiKey(), is("p@ssw0rd"));
-        assertThat(pluginSettings.getApiUrl(), is("https://cloud.example.com/api/v1"));
-        assertThat(pluginSettings.getTopic(), is("arn:aws:sns:us-east-1:771141530523:my-test-topic"));
+        assertThat(pluginSettings.getRegion(), is("us-east-1"));
+        assertThat(pluginSettings.getTopic(), is("arn:aws:sns:us-east-1:333333333333:my-test-topic"));
     }
 }
