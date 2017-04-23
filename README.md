@@ -8,12 +8,12 @@ SNS is AWS' publish/subscribe subsystem. This plugin allows any piece of softwar
 
 The plugin is configurable via these settings:
 
-* *Topic ARN* This is the SNS topic to publish notifications to. It is required.
-* *Region* The AWS region in which to make SNS requests. Optional.
-* *AWS Access ID* Credentials to use when accessing SNS. Optional.
-* *AWS Secret Access ID* Credentials to use when accessing SNS. Optional.
+* **Topic ARN** This is the SNS topic to publish notifications to. It is required.
+* **Region** The AWS region in which to make SNS requests. Optional.
+* **AWS Access ID** Credentials to use when accessing SNS. Optional.
+* **AWS Secret Access ID** Credentials to use when accessing SNS. Optional.
 
-The settings *AWS Access ID* and *AWS Secret Access ID* should be used for *testing purposes only*. If absent, the plugin will use the normal credential lookup mechanism.
+The settings **AWS Access ID** and **AWS Secret Access ID** should be used for **testing purposes only**. If absent, the plugin will use the normal credential lookup mechanism.
 
 ## Building the code base
 
