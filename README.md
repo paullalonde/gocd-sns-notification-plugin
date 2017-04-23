@@ -1,7 +1,6 @@
-# SNS Plugin
+# SNS Notification Plugin
 
-This is merely a skeleton plugin that plugin developers can fork to get quickly
-started with writing notification plugins for GoCD.
+This is a GoCD Notification Plugin that forwards notifications to the AWS Simple Notification Service (SNS).
 
 ## Getting started
 
