@@ -13,7 +13,7 @@ The plugin is configurable via these settings:
 * **AWS Access ID** Credentials to use when accessing SNS. Optional.
 * **AWS Secret Access ID** Credentials to use when accessing SNS. Optional.
 
-The settings **AWS Access ID** and **AWS Secret Access ID** should be used for **testing purposes only**. If absent, the plugin will use the normal credential lookup mechanism.
+The settings **AWS Access ID** and **AWS Secret Access ID** should be used for **testing purposes only**. If absent, the plugin will use the normal credential lookup mechanism as explained [here](http://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/credentials.html).
 
 ## Building the code base
 
