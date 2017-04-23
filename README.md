@@ -2,13 +2,18 @@
 
 This is a GoCD Notification Plugin that forwards notifications to the AWS Simple Notification Service (SNS).
 
-## Getting started
+SNS is AWS' publish/subscribe subsystem. This plugin allows any piece of software that can subscribe to an SNS topic to become the recipient of GoCD notifications.
 
-* Edit the file `build.gradle`
-* Edit the `GetPluginConfigurationExecutor.java` class to add any configuration fields that should be shown in the view.
-* Edit the `plugin-settings.template.html` file which contains the view for the plugin settings page of your plugin.
-* Edit the `PluginSettings.java` file which contains the model for your settings.
-* Implement the `StageStatusRequestExecutor.java` class to get a basic notification plugin working.
+## Settings
+
+The plugin is configurable via these settings:
+
+* *Topic ARN* This is the SNS topic to publish notifications to. It is required.
+* *Region* The AWS region in which to make SNS requests. Optional.
+* *AWS Access ID* Credentials to use when accessing SNS. Optional.
+* *AWS Secret Access ID* Credentials to use when accessing SNS. Optional.
+
+The settings *AWS Access ID* and *AWS Secret Access ID* should be used for *testing purposes only*. If absent, the plugin will use the normal credential lookup mechanism.
 
 ## Building the code base
 
