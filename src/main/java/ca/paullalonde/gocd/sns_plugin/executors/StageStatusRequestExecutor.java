@@ -16,6 +16,7 @@
 
 package ca.paullalonde.gocd.sns_plugin.executors;
 
+import ca.paullalonde.gocd.sns_plugin.Plugin;
 import ca.paullalonde.gocd.sns_plugin.requests.StageStatusRequest;
 import ca.paullalonde.gocd.sns_plugin.PluginRequest;
 import ca.paullalonde.gocd.sns_plugin.PluginSettings;
@@ -26,6 +27,7 @@ import com.amazonaws.services.sns.AmazonSNSClientBuilder;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.thoughtworks.go.plugin.api.logging.Logger;
 import com.thoughtworks.go.plugin.api.response.DefaultGoPluginApiResponse;
 import com.thoughtworks.go.plugin.api.response.GoPluginApiResponse;
 
@@ -33,6 +35,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 
 public class StageStatusRequestExecutor implements RequestExecutor {
+    private static final Logger LOG = Logger.getLoggerFor(StageStatusRequestExecutor.class);
     private static final Gson GSON = new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES).create();
 
     private final StageStatusRequest request;
@@ -58,9 +61,14 @@ public class StageStatusRequestExecutor implements RequestExecutor {
 
     protected void sendNotification() throws Exception {
         PluginSettings pluginSettings = pluginRequest.getPluginSettings();
-        AmazonSNS sns = makeSns(pluginSettings);
+        String topic =  pluginSettings.getTopic();
 
-        sns.publish(pluginSettings.getTopic(), request.toJSON());
+        if ((topic != null) && !topic.isEmpty()) {
+            AmazonSNS sns = makeSns(pluginSettings);
+            sns.publish(topic, request.toJSON());
+        } else {
+            LOG.debug("StageStatusRequestExecutor : Cannot publish to SNS because the topic is missing.");
+        }
     }
 
     private AmazonSNS makeSns(PluginSettings pluginSettings) throws Exception {
