@@ -17,7 +17,7 @@
 apply plugin: 'java'
 
 group = 'ca.paullalonde.gocd.sns_plugin'
-version = '0.5'
+version = '0.6'
 
 // these values that go into plugin.xml
 project.ext.pluginDesc = [
@@ -27,7 +27,7 @@ project.ext.pluginDesc = [
     name       : 'SNS Notification Plugin',
     description: 'Sends notifications to the AWS Simple Notification Service (SNS)',
     vendorName : 'Paul Lalonde',
-    vendorUrl  : 'https://github.com/paullalonde/gocd-sns-plugin'
+    vendorUrl  : 'https://github.com/paullalonde/gocd-sns-notification-plugin'
 ]
 
 // Force 1.7 compatibility to ensure that it works with older JVMs
