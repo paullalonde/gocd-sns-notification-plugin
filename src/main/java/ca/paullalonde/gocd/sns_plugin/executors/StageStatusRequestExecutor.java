@@ -20,6 +20,8 @@ import ca.paullalonde.gocd.sns_plugin.Plugin;
 import ca.paullalonde.gocd.sns_plugin.requests.StageStatusRequest;
 import ca.paullalonde.gocd.sns_plugin.PluginRequest;
 import ca.paullalonde.gocd.sns_plugin.PluginSettings;
+import com.amazonaws.AmazonClientException;
+import com.amazonaws.AmazonServiceException;
 import com.amazonaws.auth.AWSStaticCredentialsProvider;
 import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.services.sns.AmazonSNS;
@@ -65,7 +67,15 @@ public class StageStatusRequestExecutor implements RequestExecutor {
 
         if ((topic != null) && !topic.isEmpty()) {
             AmazonSNS sns = makeSns(pluginSettings);
-            sns.publish(topic, request.toJSON());
+            try {
+                sns.publish(topic, request.toJSON());
+            } catch (AmazonServiceException e) {
+                String message = String.format("StageStatusRequestExecutor : Cannot publish to SNS topic, error code = '%s', message = '%s'.", e.getErrorCode(), e.getErrorMessage());
+                LOG.error(message);
+            } catch (AmazonClientException e) {
+                String message = String.format("StageStatusRequestExecutor : Cannot publish to SNS topic, message = '%s'.", e.getMessage());
+                LOG.error(message);
+            }
         } else {
             LOG.debug("StageStatusRequestExecutor : Cannot publish to SNS because the topic is missing.");
         }

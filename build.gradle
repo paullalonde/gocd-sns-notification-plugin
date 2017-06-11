@@ -17,7 +17,7 @@
 apply plugin: 'java'
 
 group = 'ca.paullalonde.gocd.sns_plugin'
-version = '0.6'
+version = '0.7'
 
 // these values that go into plugin.xml
 project.ext.pluginDesc = [
